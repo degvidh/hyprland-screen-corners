@@ -35,16 +35,19 @@ make
 hyprctl plugin load $PWD/screencorners.so
 ```
 
-To load it on every Hyprland start, in `hyprland.conf`:
+To load it on every Hyprland start, in your config.
+
+Hyprland's Lua config (`hyprland.lua`) — the recommended way, this also
+registers the plugin config keys so it loads before the config is verified:
+
+```lua
+hl.plugin.load("/path/to/hyprland-screen-corners/screencorners.so")
+```
+
+Classic `hyprland.conf`:
 
 ```ini
 exec-once = hyprctl plugin load /path/to/hyprland-screen-corners/screencorners.so
-```
-
-(Lua config):
-
-```lua
-hl.exec_cmd("hyprctl plugin load /path/to/hyprland-screen-corners/screencorners.so")
 ```
 
 ## Configuration
